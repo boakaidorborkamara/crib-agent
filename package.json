@@ -1,0 +1,30 @@
+{
+  "name": "crib-agent",
+  "version": "1.0.0",
+  "description": "A chat-bot that enable Liberians to find homes using facebook messenger",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boakaidorborkamara/crib-agent.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express",
+    "Chatbot"
+  ],
+  "author": "Boakai Dorbor Kamara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boakaidorborkamara/crib-agent/issues"
+  },
+  "homepage": "https://github.com/boakaidorborkamara/crib-agent#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
