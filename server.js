@@ -1,5 +1,7 @@
 'use strict';
 
+const { reset } = require('nodemon');
+
 // file containing environment variables 
 require('dotenv').config();
 // console.log(process.env.TOKEN);
@@ -16,7 +18,8 @@ const
 
 //ROUTES
 app.get("/",(req,res)=>{
-    res.send("Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort.");
+    // res.send("Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort.");
+    res.send({token: process.env.TOKEN}, {message:"Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort."});
 })
 
 // Creates the endpoint for our webhook 
