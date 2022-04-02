@@ -19,7 +19,7 @@ const
 //ROUTES
 app.get("/",(req,res)=>{
     // res.send("Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort.");
-    res.send({token: process.env.TOKEN}, {message:"Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort."});
+    res.send(JSON.stringify({token: process.env.TOKEN, message:"Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort."}));
 })
 
 // Creates the endpoint for our webhook 
@@ -80,4 +80,4 @@ app.get('/webhook', (req, res) => {
 
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 3000, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 3500, () => console.log('webhook is listening'));
