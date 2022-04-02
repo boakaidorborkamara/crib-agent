@@ -16,7 +16,7 @@ const
 
 //ROUTES
 app.get("/",(req,res)=>{
-    // res.send(process.env.MY_VERIFY_TOKEN);
+    res.send("Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort.");
 })
 
 // Creates the endpoint for our webhook 
