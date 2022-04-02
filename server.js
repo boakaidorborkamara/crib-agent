@@ -19,7 +19,7 @@ const
 //ROUTES
 app.get("/",(req,res)=>{
     // res.send("Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort.");
-    res.send(JSON.stringify({token: process.env.TOKEN, message:"Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort."}));
+    res.send(JSON.stringify({message:"Welcome! I am CribAgent and I am here to help you find homes base upon your budget and comfort."}));
 })
 
 // Creates the endpoint for our webhook 
@@ -37,6 +37,10 @@ app.post('/webhook', (req, res) => {
         // will only ever contain one message, so we get index 0
         let webhook_event = entry.messaging[0];
         console.log(webhook_event);
+
+        //Get Sender PSID
+        let sender_psid = webhook_event.sender.id;
+        console.log('Sender PSID: ' + sender_psid);
       });
   
       // Returns a '200 OK' response to all requests
