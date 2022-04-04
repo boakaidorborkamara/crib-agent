@@ -43,10 +43,32 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+  if (payload === '<postback_payload>') {
+    response = {
+      "text": "Nice step, which of the following are you?",
+      "quick_replies":[
+        {
+          "content_type":"text",
+          "title":"Tenant",
+          "payload":"TENANT",
+        },{
+          "content_type":"text",
+          "title":"Landlord",
+          "payload":"LANDLORD",
+        }
+      ]
+    }
+
+  } else if (payload === 'FIND_HOME') {
+    response = { "text":"You will be able to find a home soon, but this feature is undergoing development now!" }
+  }else if (payload === 'RENT_SPACE') {
+    response = { "text":"You will be able to rent a space soon, but this feature is undergoing development now!" }
+  }else if (payload === 'ABOUT') {
+    response = { "text":"Thanks for your intrest in knowing more about CribAgent, info about me will be avaliable soon." }
+  }else if (payload === 'PRO') {
+    response = { "text":"With our pro features you'll have lots of goodies, please be patience while we complete it." }
+  }else if (payload === 'FEEDBACK') {
+    response = { "text":"Your honest feedback is welcome." }
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
@@ -59,24 +81,24 @@ function callSendAPI(sender_psid, response) {
     "recipient": {
       "id": sender_psid
     },
-    // "message": response,
-    "messaging-type":"RESPONSE",
-    "message":{
-      "text": "Pick a color:",
-      "quick_replies":[
-        {
-          "content_type":"text",
-          "title":"Red",
-          "payload":"<POSTBACK_PAYLOAD>",
-          "image_url":"http://example.com/img/red.png"
-        },{
-          "content_type":"text",
-          "title":"Green",
-          "payload":"<POSTBACK_PAYLOAD>",
-          "image_url":"http://example.com/img/green.png"
-        }
-      ]
-    }
+    "message": response
+    // "messaging-type":"RESPONSE",
+    // "message":{
+    //   "text": "Pick a color:",
+    //   "quick_replies":[
+    //     {
+    //       "content_type":"text",
+    //       "title":"Red",
+    //       "payload":"<POSTBACK_PAYLOAD>",
+    //       "image_url":"http://example.com/img/red.png"
+    //     },{
+    //       "content_type":"text",
+    //       "title":"Green",
+    //       "payload":"<POSTBACK_PAYLOAD>",
+    //       "image_url":"http://example.com/img/green.png"
+    //     }
+    //   ]
+    // }
     
   }
 
